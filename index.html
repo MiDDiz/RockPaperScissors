@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>1.2 Assignment</title> 
+        <title>Piedra, Papel, Tijera!</title> 
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div id="wrapper">
+            <div class="header"><h1>Piedra Papel Tijera!</h1></div>
+            <div class="botones">
+                <button type="button" value="piedra">Piedra</button>
+                <button type="button" value="papel">Papel</button>
+                <button type="button" value="tijera">Tijera</button>
+            </div>
+            <div class="resultado">
+                Elige algo para empezar a jugar :D<span id="eleccionJugador"></span> <span id="eleccionOrdenador"></span>
+                <span id="resultado"></span>
+            </div>
+        </div>
+        <div class="footer">
+            <span id="puntosJugador">Puntos del jugador</span>
+            <span id="puntosOrdenador">Puntos del ordenador</span>
+        </div>
+        
+
         <script src="main.js">
         </script>
     </body>

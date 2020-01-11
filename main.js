@@ -1,12 +1,15 @@
 const btnPiedra = document.querySelector(`button[value="piedra"]`);
 const btnPapel = document.querySelector("button[value=\"papel\"]");
 const btnTijera = document.querySelector("button[value=\"tijera\"]");
-const txtJugador = document.querySelector("#eleccionJugador");
-const txtOrdenador = document.querySelector("#eleccionOrdenador");
 const txtResultado = document.querySelector("#resultado");
 const divResultado = document.querySelector("div.resultado");
+const spanPuntosJgador = document.querySelector("#puntosJugador");
+const spanPuntosOrdenador = document.querySelector("#puntosOrdenador");
 let puntosJugador = 0;
 let puntosOrdenador = 0;
+
+let eleccionJugador;
+let eleccionOrdenador;
 
 
 function jugadaOrdenador(){
@@ -24,86 +27,95 @@ function jugadaOrdenador(){
             break;
         default:
             console.log("Problema en jugadaOrdenador()");
+            jugada = -1;
             break;
     }
     console.log("Ordenador escogió " + jugada);
     return jugada;
 }
+
 function processPlay(seleccionJugador, seleccionOrdenador){
 
-    txtJugador.textContent = seleccionJugador;
-    txtOrdenador.textContent = seleccionOrdenador;
+    
+    
     
     if (seleccionJugador === seleccionOrdenador){
-        console.log(`Oh, looks like a draw. You both picked ${seleccionJugador}`);
-        return "Empate!"
+        console.log(`draw. You both picked ${seleccionJugador}`);
     }
     else if((seleccionJugador === "piedra")){
         switch(seleccionOrdenador){
             case "papel":
-                console.log( `Oh, looks like you lost. Computer picked ${seleccionOrdenador}`);
+                console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                return "Tu pierdes!"
-            case "tijeras":
+                break;
+            case "tijera":
                 puntosJugador++;
-                console.log( `Oh, you won... Computer picked ${seleccionOrdenador}. Congrats, I guess...`);
-                return "Tu ganas!"
+                console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                break;
             }
     }
     else if(seleccionJugador === "papel"){
         switch(seleccionOrdenador){
             case "piedra":
                 puntosJugador++;
-                console.log( `Oh, you won... Computer picked ${seleccionOrdenador}. Congrats, I guess...`);
-                return "Tu ganas!"
-            case "tijeras":
-                console.log( `Oh, looks like you lost. Computer picked ${seleccionOrdenador}`);
+                console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                break;
+            case "tijera":
+                console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                return "Tu pierdes!"
+                break;
             }
     }
     else if(seleccionJugador === "tijera"){
         switch(seleccionOrdenador){
             case "piedra":
-                console.log( `Oh, looks like you lost. Computer picked ${seleccionOrdenador}`);
+                console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                return "Tu pierdes!"
+                break;
             case "papel":
                 puntosJugador++;
-                console.log( `Oh, you won... Computer picked ${seleccionOrdenador}. Congrats, I guess...`);
-                return "Tu ganas!"
+                console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                break;
             }
     }
     else{
         console.log("Error in function processPlay()");
     }
     console.log(`Player selection = ${seleccionJugador}\nComputer selection = ${seleccionOrdenador}`);
+    administrarTexto(seleccionJugador, seleccionOrdenador);
     
 
 }
 
-function administrarTexto(){
+function administrarTexto(seleccionJugador, seleccionOrdenador){
+    spanPuntosJgador.textContent = puntosJugador;
+    spanPuntosOrdenador.textContent = puntosOrdenador;
+    divResultado.textContent = `Tu elegiste ${seleccionJugador} y el ordenador escogió ${seleccionOrdenador}` ;
     if(puntosJugador >= 5 || puntosOrdenador >= 5){
         btnPiedra.disabled = true;
         btnPapel.disabled = true;
         btnTijera.disabled = true;
         
-        puntosJugador >= 5 ? txtResultado.textContent = "Has Ganado!" : txtResultado.textContent = "Has Perdido :(" ;
+        puntosJugador >= 5 ? divResultado.innerHTML = divResultado.textContent + "<br>Has Ganado!" : divResultado.innerHTML = divResultado.textContent + "<br>Has Perdido :(" ;
+        return
     }
+    
+    
+
 }
 
 btnPiedra.addEventListener("click", (e) =>{
     
     processPlay("piedra", jugadaOrdenador());
-    administrarTexto();
+    
 });
 btnPapel.addEventListener("click", () => {
     
     processPlay("papel", jugadaOrdenador());
-    administrarTexto();
+    
 });
 btnTijera.addEventListener("click", () => {
     
     processPlay("tijera", jugadaOrdenador());
-    administrarTexto();
+    
 });

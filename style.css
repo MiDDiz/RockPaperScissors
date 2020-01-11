@@ -30,20 +30,32 @@ h1{
 
 .footer{
     position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    padding-top: 4em;
+    right: 20%;
+    left: 20%;
     padding-bottom: 4em;
     font-weight: bold;
     padding-left: 4em;
     padding-right: 4em;
     font-size: larger;
+    text-align: center;
+    
+    display: inline-block;
 }
-
-#puntosOrdenador{
+.footerLeft{
+    color: rgb(0, 184, 217);
     position: absolute;
+    width: 180px;
+    display: block;
+    height: 60px;
+}
+.footerRight{
+    position: absolute;
+    width: 200px;
     right: 0;
-    padding-bottom: 4em;
     padding-left: 4em;
     padding-right: 4em;
+    color: rgb(230, 255, 1);
+    display: block;
+    height: 60px;
 }

@@ -9,6 +9,9 @@ button{
     width: 9em;
     height: 3em;
     margin: 22px;
+    background-color: grey;
+    text-shadow: black;
+    border-radius: 1.5em;
 }
 
 h1{

@@ -41,16 +41,19 @@ function processPlay(seleccionJugador, seleccionOrdenador){
     
     if (seleccionJugador === seleccionOrdenador){
         console.log(`draw. You both picked ${seleccionJugador}`);
+        txtResultado.style.backgroundColor = "blue";
     }
     else if((seleccionJugador === "piedra")){
         switch(seleccionOrdenador){
             case "papel":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
+                txtResultado.style.backgroundColor = "red";
                 break;
             case "tijera":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                txtResultado.style.backgroundColor = "green";
                 break;
             }
     }
@@ -59,10 +62,12 @@ function processPlay(seleccionJugador, seleccionOrdenador){
             case "piedra":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                txtResultado.style.backgroundColor = "green";
                 break;
             case "tijera":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
+                txtResultado.style.backgroundColor = "red";
                 break;
             }
     }
@@ -71,10 +76,12 @@ function processPlay(seleccionJugador, seleccionOrdenador){
             case "piedra":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
+                txtResultado.style.backgroundColor = "red";
                 break;
             case "papel":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
+                txtResultado.style.backgroundColor = "green";
                 break;
             }
     }

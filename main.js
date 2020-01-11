@@ -41,19 +41,19 @@ function processPlay(seleccionJugador, seleccionOrdenador){
     
     if (seleccionJugador === seleccionOrdenador){
         console.log(`draw. You both picked ${seleccionJugador}`);
-        txtResultado.style.color = "blue";
+        divResultado.style.color = "blue";
     }
     else if((seleccionJugador === "piedra")){
         switch(seleccionOrdenador){
             case "papel":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                txtResultado.style.color = "red";
+                divResultado.style.color = "red";
                 break;
             case "tijera":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
-                txtResultado.style.color = "green";
+                divResultado.style.color = "green";
                 break;
             }
     }
@@ -62,12 +62,12 @@ function processPlay(seleccionJugador, seleccionOrdenador){
             case "piedra":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
-                txtResultado.style.color = "green";
+                divResultado.style.color = "green";
                 break;
             case "tijera":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                txtResultado.style.color = "red";
+                divResultado.style.color = "red";
                 break;
             }
     }
@@ -76,12 +76,12 @@ function processPlay(seleccionJugador, seleccionOrdenador){
             case "piedra":
                 console.log( `you lost. Computer picked ${seleccionOrdenador}`);
                 puntosOrdenador++;
-                txtResultado.style.color = "red";
+                divResultado.style.color = "red";
                 break;
             case "papel":
                 puntosJugador++;
                 console.log( `you won. Computer picked ${seleccionOrdenador}.`);
-                txtResultado.style.color = "green";
+                divResultado.style.color = "green";
                 break;
             }
     }
